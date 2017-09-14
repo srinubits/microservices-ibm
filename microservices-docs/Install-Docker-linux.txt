@@ -1,0 +1,29 @@
+sbtalk71/Welcome@123 --> docker HUB
+Install Docker on CentOS 7 64 bit
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+
+sudo yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+	
+sudo yum makecache fast
+sudo yum install docker-ce
+
+sudo systemctl start docker (Starts Docker Daemon)
+sudo systemctl stop docker (Stops Docker Daemon)
+sudo docker run hello-world (Test Image)
+docker run -it ubuntu bash (Downloads and runs an ubuntu on bash)
+sudo docker stop <container_name>
+sudo docker rmi -f <imagename>
+:::Run a docker container on a port
+docker run -p <orig port>:<mapped port> imagename
+
+How to build a Docker Image
+1. Write the Dockerfile
+2. create the app
+3. keep all the artifacts in a folder
+4. cd to that folder
+5. build the docker Image as [docker build -t imagename .]
+
+
