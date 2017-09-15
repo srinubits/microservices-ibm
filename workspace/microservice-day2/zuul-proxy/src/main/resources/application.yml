@@ -1,0 +1,29 @@
+server:
+  port: 9090
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8762/eureka/
+
+zuul:
+  #Service will be mapped under the /api URI
+  prefix: /api
+#  Uncomment to disable auto-registering all services read from Eureka
+#  ignoredServices: '*'
+  routes:
+    test:
+      path: /redirect/**
+      url: https://www.google.com
+    customer-by-address:
+      path: /message-by-address/**
+      url: http://localhost:8283
+    customer-by-service:
+      path: /message-by-service/**
+      serviceId: TEST-SERVICE
+    static:
+      path: /static/**
+
+spring:
+  application:
+    name: zuul-server
