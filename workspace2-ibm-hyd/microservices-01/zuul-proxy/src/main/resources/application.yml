@@ -1,0 +1,25 @@
+server:
+  port: 9010
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+zuul:
+  prefix: /api
+  routes:
+    get-by-host:
+      path: /myhost/**
+      url: http://localhost:8081
+    get-by-service:
+      path: /myservice/**
+      url: emp-service
+    get-by-client:
+      path: /mygateway/**
+      url: client-service
+    test:
+      path: /redirect/**
+      url: http://google.co.in
+spring:
+  application:
+    name: zuul-proxy
