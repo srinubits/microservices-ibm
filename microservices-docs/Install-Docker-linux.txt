@@ -17,7 +17,7 @@ docker run -it ubuntu bash (Downloads and runs an ubuntu on bash)
 sudo docker stop <container_name>
 sudo docker rmi -f <imagename>
 :::Run a docker container on a port
-docker run -p <orig port>:<mapped port> imagename
+docker run -p <mapped port>:<orig port> imagename
 
 How to build a Docker Image
 1. Write the Dockerfile
